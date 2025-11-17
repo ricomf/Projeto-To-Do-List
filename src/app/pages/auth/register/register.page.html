@@ -1,0 +1,137 @@
+<ion-content [fullscreen]="true" class="register-content">
+  <div class="register-container">
+    <!-- Header Section -->
+    <div class="header-section">
+      <h1 class="page-title">Cadastro</h1>
+      <h2 class="welcome-message">Comece organizando sua rotina aqui</h2>
+    </div>
+
+    <!-- Register Form -->
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+      <!-- Name Input -->
+      <div class="input-group">
+        <div class="input-wrapper" [class.has-error]="nome?.invalid && nome?.touched">
+          <ion-icon name="person-outline" class="input-icon"></ion-icon>
+          <input
+            type="text"
+            formControlName="nome"
+            placeholder="Nome completo"
+            autocomplete="name"
+            class="custom-input"
+          />
+        </div>
+        <div class="error-text" *ngIf="nome?.invalid && nome?.touched">
+          <span *ngIf="nome?.errors?.['required']">Nome é obrigatório</span>
+          <span *ngIf="nome?.errors?.['minlength']">Nome deve ter no mínimo 3 caracteres</span>
+        </div>
+      </div>
+
+      <!-- Email Input -->
+      <div class="input-group">
+        <div class="input-wrapper" [class.has-error]="email?.invalid && email?.touched">
+          <ion-icon name="mail-outline" class="input-icon"></ion-icon>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+            autocomplete="email"
+            class="custom-input"
+          />
+        </div>
+        <div class="error-text" *ngIf="email?.invalid && email?.touched">
+          <span *ngIf="email?.errors?.['required']">Email é obrigatório</span>
+          <span *ngIf="email?.errors?.['email']">Email inválido</span>
+        </div>
+      </div>
+
+      <!-- Password Input -->
+      <div class="input-group">
+        <div class="input-wrapper" [class.has-error]="password?.invalid && password?.touched">
+          <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="password"
+            placeholder="Senha"
+            autocomplete="new-password"
+            class="custom-input"
+          />
+          <ion-icon
+            [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"
+            class="toggle-password"
+            (click)="togglePasswordVisibility()"
+          ></ion-icon>
+        </div>
+        <div class="error-text" *ngIf="password?.invalid && password?.touched">
+          <span *ngIf="password?.errors?.['required']">Senha é obrigatória</span>
+          <span *ngIf="password?.errors?.['minlength']">Senha deve ter no mínimo 8 caracteres</span>
+          <span *ngIf="password?.errors?.['passwordStrength']">
+            Senha deve conter maiúsculas, minúsculas, números e caracteres especiais
+          </span>
+        </div>
+      </div>
+
+      <!-- Confirm Password Input -->
+      <div class="input-group">
+        <div class="input-wrapper" [class.has-error]="confirmPassword?.invalid && confirmPassword?.touched || registerForm.errors?.['passwordMismatch'] && confirmPassword?.touched">
+          <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+          <input
+            [type]="showConfirmPassword ? 'text' : 'password'"
+            formControlName="confirmPassword"
+            placeholder="Confirmar senha"
+            autocomplete="new-password"
+            class="custom-input"
+          />
+          <ion-icon
+            [name]="showConfirmPassword ? 'eye-off-outline' : 'eye-outline'"
+            class="toggle-password"
+            (click)="toggleConfirmPasswordVisibility()"
+          ></ion-icon>
+        </div>
+        <div class="error-text" *ngIf="confirmPassword?.touched">
+          <span *ngIf="confirmPassword?.errors?.['required']">Confirmação de senha é obrigatória</span>
+          <span *ngIf="registerForm.errors?.['passwordMismatch'] && !confirmPassword?.errors?.['required']">
+            As senhas não coincidem
+          </span>
+        </div>
+      </div>
+
+      <!-- Terms and Conditions -->
+      <div class="terms-group">
+        <label class="terms-checkbox">
+          <input type="checkbox" formControlName="aceitaTermos" />
+          <span class="terms-text">
+            Eu aceito os
+            <a (click)="openTermsAndConditions()" class="terms-link">
+              Termos e Condições
+            </a>
+          </span>
+        </label>
+        <div class="error-text" *ngIf="aceitaTermos?.invalid && aceitaTermos?.touched">
+          <span *ngIf="aceitaTermos?.errors?.['required']">Você deve aceitar os termos e condições</span>
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div class="error-alert" *ngIf="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        [disabled]="isLoading"
+        class="register-button"
+      >
+        <ion-spinner *ngIf="isLoading" name="crescent" class="button-spinner"></ion-spinner>
+        <span *ngIf="!isLoading">Cadastrar</span>
+      </button>
+
+      <!-- Login Link -->
+      <div class="login-link">
+        <p>
+          Já tem conta? <a (click)="navigateToLogin()">Entre agora!</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</ion-content>

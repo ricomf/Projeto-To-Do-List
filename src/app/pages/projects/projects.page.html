@@ -1,0 +1,82 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Projetos</ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="add" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Projects Grid -->
+  <ion-grid *ngIf="projects.length > 0">
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let project of projects">
+        <ion-card (click)="viewProject(project)" button>
+          <ion-card-header [style.border-left]="'4px solid ' + project.cor">
+            <div class="card-header-top">
+              <ion-chip [color]="getStatusColor(project.status)">
+                <ion-label>{{ getStatusLabel(project.status) }}</ion-label>
+              </ion-chip>
+            </div>
+            <ion-card-title>{{ project.nome }}</ion-card-title>
+            <!-- <ion-card-subtitle *ngIf="project.descricao">
+              {{ project.descricao }}
+            </ion-card-subtitle> -->
+          </ion-card-header>
+
+          <ion-card-content>
+            <!-- Project Stats -->
+            <div class="project-stats">
+              <div class="stat-item">
+                <ion-icon name="checkmark-circle-outline"></ion-icon>
+                <span>{{ (project.tasks && project.tasks.length) || 0 }} tarefas</span>
+              </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="progress-section">
+              <div class="progress-label">
+                <span>Progresso</span>
+                <span>{{ (getProjectProgress(project) * 100).toFixed(0) }}%</span>
+              </div>
+              <ion-progress-bar [value]="getProjectProgress(project)"></ion-progress-bar>
+            </div>
+
+            <!-- Dates -->
+            <div class="project-dates">
+              <small>
+                <ion-icon name="calendar-outline"></ion-icon>
+                Criado em {{ formatDate(project.dataCriacao) }}
+              </small>
+            </div>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="projects.length === 0 && !isLoading">
+    <ion-icon name="briefcase-outline"></ion-icon>
+    <h2>Nenhum projeto encontrado</h2>
+    <p>Comece criando seu primeiro projeto!</p>
+    <ion-button (click)="createNewProject()">
+      <ion-icon name="add" slot="start"></ion-icon>
+      Criar Projeto
+    </ion-button>
+  </div>
+
+  <!-- Floating Action Button -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="createNewProject()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

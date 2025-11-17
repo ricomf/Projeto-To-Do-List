@@ -1,0 +1,75 @@
+<ion-content [fullscreen]="true" class="login-content">
+  <div class="login-container">
+    <!-- Header Section -->
+    <div class="header-section">
+      <h1 class="page-title">Login</h1>
+      <h2 class="welcome-message">O que vamos fazer hoje?</h2>
+    </div>
+
+    <!-- Login Form -->
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <!-- Email Input -->
+      <div class="input-group">
+        <div class="input-wrapper" [class.has-error]="email?.invalid && email?.touched">
+          <ion-icon name="mail-outline" class="input-icon"></ion-icon>
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Email"
+            autocomplete="email"
+            class="custom-input"
+          />
+        </div>
+        <div class="error-text" *ngIf="email?.invalid && email?.touched">
+          <span *ngIf="email?.errors?.['required']">Email é obrigatório</span>
+          <span *ngIf="email?.errors?.['email']">Email inválido</span>
+        </div>
+      </div>
+
+      <!-- Password Input -->
+      <div class="input-group">
+        <div class="input-wrapper" [class.has-error]="password?.invalid && password?.touched">
+          <ion-icon name="lock-closed-outline" class="input-icon"></ion-icon>
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="password"
+            placeholder="Senha"
+            autocomplete="current-password"
+            class="custom-input"
+          />
+          <ion-icon
+            [name]="showPassword ? 'eye-off-outline' : 'eye-outline'"
+            class="toggle-password"
+            (click)="togglePasswordVisibility()"
+          ></ion-icon>
+        </div>
+        <div class="error-text" *ngIf="password?.invalid && password?.touched">
+          <span *ngIf="password?.errors?.['required']">Senha é obrigatória</span>
+          <span *ngIf="password?.errors?.['minlength']">Senha deve ter no mínimo 6 caracteres</span>
+        </div>
+      </div>
+
+      <!-- Error Message -->
+      <div class="error-alert" *ngIf="errorMessage">
+        <p>{{ errorMessage }}</p>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        [disabled]="isLoading"
+        class="login-button"
+      >
+        <ion-spinner *ngIf="isLoading" name="crescent" class="button-spinner"></ion-spinner>
+        <span *ngIf="!isLoading">Logar</span>
+      </button>
+
+      <!-- Register Link -->
+      <div class="register-link">
+        <p>
+          Não tem conta? <a (click)="navigateToRegister()">Cadastre-se agora!</a>
+        </p>
+      </div>
+    </form>
+  </div>
+</ion-content>

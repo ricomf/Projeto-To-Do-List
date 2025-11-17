@@ -1,0 +1,20 @@
+<ion-tabs>
+  <ion-router-outlet></ion-router-outlet>
+
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="tasks" href="/tabs/tasks">
+      <ion-icon aria-hidden="true" name="checkmark-circle"></ion-icon>
+      <ion-label>Tarefas</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="projects" href="/tabs/projects">
+      <ion-icon aria-hidden="true" name="briefcase"></ion-icon>
+      <ion-label>Projetos</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="settings" href="/tabs/settings">
+      <ion-icon aria-hidden="true" name="settings"></ion-icon>
+      <ion-label>Configurações</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

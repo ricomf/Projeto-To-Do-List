@@ -1,0 +1,519 @@
+ion-content {
+  --background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  --padding-top: 16px;
+  --padding-bottom: 16px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+ion-header {
+  ion-toolbar {
+    --background: rgba(26, 26, 46, 0.95);
+    --color: #ffffff;
+    --min-height: 56px;
+
+    ion-title {
+      font-weight: 600;
+      font-size: 18px;
+      padding: 0 8px;
+    }
+
+    ion-buttons {
+      ion-button {
+        --color: #ffffff;
+        --padding-start: 8px;
+        --padding-end: 8px;
+        margin: 0 4px;
+        height: 44px;
+        width: 44px;
+        min-width: 44px;
+
+        ion-icon {
+          font-size: 24px;
+          pointer-events: none;
+        }
+      }
+
+      ion-back-button {
+        --color: #ffffff;
+        --min-width: 44px;
+        --padding-start: 8px;
+        --padding-end: 8px;
+        min-height: 44px;
+
+        &::part(icon) {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+}
+
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+ion-list {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+ion-item {
+  --background: rgba(255, 255, 255, 0.08);
+  --border-color: transparent;
+  --color: #ffffff;
+  --padding-start: 20px;
+  --padding-end: 20px;
+  --inner-padding-end: 0;
+  margin-bottom: 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  min-height: 60px;
+
+  &:hover {
+    --background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(82, 96, 255, 0.4);
+  }
+
+  ion-label {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    margin-bottom: 8px !important;
+    letter-spacing: 0.3px;
+
+    &[position="stacked"] {
+      transform: none !important;
+      margin-bottom: 12px !important;
+    }
+  }
+
+  ion-input, ion-textarea {
+    --color: #ffffff;
+    --placeholder-color: rgba(255, 255, 255, 0.5);
+    --placeholder-opacity: 1;
+    font-size: 15px;
+    font-weight: 400;
+
+    &::part(native) {
+      color: #ffffff !important;
+    }
+  }
+
+  ion-select {
+    --placeholder-color: rgba(255, 255, 255, 0.5);
+    --placeholder-opacity: 1;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 400;
+    width: 100%;
+
+    &::part(text) {
+      color: #ffffff !important;
+    }
+
+    &::part(icon) {
+      color: #5260ff !important;
+    }
+  }
+
+  ion-datetime-button {
+    --background: transparent;
+    --color: #ffffff;
+    font-size: 15px;
+
+    &::part(native) {
+      color: #ffffff !important;
+    }
+  }
+}
+
+.error-message {
+  color: #ff6b6b;
+  padding: 0 20px 12px;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  small {
+    display: block;
+  }
+
+  &::before {
+    content: "⚠";
+    font-size: 14px;
+  }
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 2px 0 4px 0;
+  width: 100%;
+  min-height: 28px;
+  align-items: center;
+
+  &:empty {
+    min-height: 0;
+    padding: 0;
+  }
+
+  ion-chip {
+    background: linear-gradient(135deg, #5260ff 0%, #6370ff 100%);
+    color: white;
+    font-weight: 500;
+    font-size: 13px;
+    height: 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 0;
+    padding: 0 10px;
+    border-radius: 15px;
+    box-shadow: 0 2px 6px rgba(82, 96, 255, 0.25);
+
+    &:hover {
+      background: linear-gradient(135deg, #6370ff 0%, #7481ff 100%);
+      transform: translateY(-1px);
+      box-shadow: 0 3px 10px rgba(82, 96, 255, 0.4);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 1px 4px rgba(82, 96, 255, 0.35);
+    }
+
+    ion-label {
+      color: white !important;
+      margin: 0 4px 0 0 !important;
+      font-weight: 500 !important;
+      font-size: 13px !important;
+    }
+
+    ion-icon {
+      color: white;
+      font-size: 16px;
+      margin: 0;
+    }
+  }
+}
+
+// Tags section item
+ion-item:has(.tags-container) {
+  --inner-padding-end: 20px;
+  min-height: auto;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 8px;
+
+  ion-label[position="stacked"] {
+    margin-bottom: 6px !important;
+    font-size: 13px !important;
+  }
+
+  // Oculta o container quando vazio
+  &:has(.tags-container:empty) {
+    display: none;
+  }
+
+  // Estilo quando tem tags
+  &:has(.tags-container:not(:empty)) {
+    --background: rgba(82, 96, 255, 0.08);
+    border-color: rgba(82, 96, 255, 0.2);
+  }
+}
+
+// Tags input item styling
+ion-item:has(ion-input[placeholder*="tag"]) {
+  --background: rgba(255, 255, 255, 0.08);
+  --padding-end: 12px;
+  --padding-start: 16px;
+  border: 1px solid rgba(82, 96, 255, 0.35);
+  display: flex;
+  align-items: center;
+  min-height: 50px;
+  margin-bottom: 12px;
+  transition: all 0.3s ease;
+
+  &:focus-within {
+    border-color: rgba(82, 96, 255, 0.7);
+    --background: rgba(82, 96, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(82, 96, 255, 0.15);
+  }
+
+  ion-input {
+    --color: #ffffff;
+    --placeholder-color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    flex: 1;
+    min-width: 0;
+    padding-right: 8px;
+  }
+
+  ion-button {
+    --color: #ffffff;
+    --background: linear-gradient(135deg, #5260ff 0%, #6370ff 100%);
+    --background-hover: linear-gradient(135deg, #6370ff 0%, #7481ff 100%);
+    --background-activated: linear-gradient(135deg, #4854e0 0%, #5260ff 100%);
+    --border-radius: 10px;
+    --padding-start: 0;
+    --padding-end: 0;
+    --box-shadow: 0 2px 8px rgba(82, 96, 255, 0.3);
+    margin: 0;
+    margin-left: 8px;
+    height: 38px;
+    width: 38px;
+    min-width: 38px;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      --box-shadow: 0 4px 12px rgba(82, 96, 255, 0.45);
+    }
+
+    &:active {
+      transform: scale(0.95);
+      --box-shadow: 0 1px 4px rgba(82, 96, 255, 0.4);
+    }
+
+    ion-icon {
+      font-size: 20px;
+      pointer-events: none;
+    }
+  }
+}
+
+.submit-container {
+  padding: 20px 0 16px;
+
+  ion-button {
+    --background: linear-gradient(135deg, #5260ff 0%, #6370ff 100%);
+    --border-radius: 12px;
+    --box-shadow: 0 4px 16px rgba(82, 96, 255, 0.4);
+    --padding-top: 16px;
+    --padding-bottom: 16px;
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    text-transform: none;
+    height: 56px;
+
+    &:hover:not([disabled]) {
+      --background: linear-gradient(135deg, #6370ff 0%, #7481ff 100%);
+      --box-shadow: 0 6px 20px rgba(82, 96, 255, 0.5);
+      transform: translateY(-2px);
+    }
+
+    &:active:not([disabled]) {
+      transform: translateY(0);
+    }
+
+    &[disabled] {
+      opacity: 0.5;
+      --background: rgba(82, 96, 255, 0.4);
+    }
+
+    ion-icon {
+      font-size: 20px;
+    }
+  }
+}
+
+// Section headers (optional - for future use)
+.form-section {
+  margin-bottom: 24px;
+
+  &-title {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    padding-left: 4px;
+    letter-spacing: 0.5px;
+  }
+}
+
+// Modal styling for datetime
+ion-modal {
+  --background: #1a1a2e;
+
+  ion-datetime {
+    --background: #1a1a2e;
+    color: #ffffff;
+  }
+}
+
+// Responsive adjustments
+@media (min-width: 768px) {
+  ion-content {
+    --padding-top: 24px;
+    --padding-bottom: 24px;
+    --padding-start: 24px;
+    --padding-end: 24px;
+  }
+
+  form {
+    padding: 0;
+  }
+
+  ion-item {
+    min-height: 70px;
+  }
+
+  .submit-container {
+    padding: 32px 0 48px;
+  }
+
+  ion-header ion-toolbar {
+    --min-height: 64px;
+
+    ion-title {
+      font-size: 20px;
+    }
+
+    ion-buttons {
+      ion-button {
+        height: 48px;
+        width: 48px;
+        min-width: 48px;
+
+        ion-icon {
+          font-size: 26px;
+        }
+      }
+
+      ion-back-button {
+        --min-width: 48px;
+        min-height: 48px;
+
+        &::part(icon) {
+          font-size: 26px;
+        }
+      }
+    }
+  }
+
+  ion-item:has(ion-input[placeholder*="tag"]) {
+    ion-button {
+      height: 44px;
+      width: 44px;
+      min-width: 44px;
+      --box-shadow: 0 3px 10px rgba(82, 96, 255, 0.35);
+
+      ion-icon {
+        font-size: 24px;
+      }
+    }
+  }
+}
+
+// Mobile optimizations
+@media (max-width: 767px) {
+  ion-content {
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+    --padding-start: 12px;
+    --padding-end: 12px;
+  }
+
+  .submit-container {
+    padding: 16px 0 8px;
+  }
+
+  ion-header ion-toolbar {
+    ion-buttons {
+      ion-button {
+        --ripple-color: rgba(255, 255, 255, 0.2);
+
+        &:active {
+          opacity: 0.8;
+        }
+      }
+
+      ion-back-button {
+        --ripple-color: rgba(255, 255, 255, 0.2);
+      }
+    }
+  }
+
+  ion-item:has(ion-input[placeholder*="tag"]) {
+    --padding-start: 14px;
+    --padding-end: 10px;
+    min-height: 48px;
+    margin-bottom: 10px;
+
+    ion-input {
+      font-size: 13px;
+    }
+
+    ion-button {
+      margin-left: 6px;
+      height: 36px;
+      width: 36px;
+      min-width: 36px;
+      --ripple-color: rgba(82, 96, 255, 0.3);
+      --box-shadow: 0 2px 6px rgba(82, 96, 255, 0.3);
+
+      ion-icon {
+        font-size: 18px;
+      }
+    }
+  }
+
+  ion-item:has(.tags-container) {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-bottom: 6px;
+
+    ion-label[position="stacked"] {
+      margin-bottom: 4px !important;
+    }
+  }
+
+  .tags-container {
+    gap: 5px;
+    padding: 2px 0 3px 0;
+    min-height: 26px;
+
+    ion-chip {
+      height: 28px;
+      padding: 0 8px;
+      font-size: 12px;
+
+      ion-icon {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+// Animation for form items
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ion-item {
+  animation: slideInUp 0.3s ease-out;
+  animation-fill-mode: both;
+
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.05}s;
+    }
+  }
+}

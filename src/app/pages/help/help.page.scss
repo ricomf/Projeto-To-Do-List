@@ -1,0 +1,122 @@
+ion-content {
+  --background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+}
+
+.help-header {
+  text-align: center;
+  padding: 32px 24px;
+  color: #ffffff;
+
+  ion-icon {
+    font-size: 64px;
+    color: #4285f4;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0 0 8px 0;
+  }
+
+  p {
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+}
+
+.faq-accordion {
+  margin: 0 16px 24px;
+
+  ion-accordion {
+    margin-bottom: 8px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.08);
+
+    ion-item {
+      --background: transparent;
+      --color: #ffffff;
+      --padding-start: 16px;
+      --padding-end: 16px;
+      --border-color: transparent;
+
+      ion-label {
+        font-weight: 500;
+        padding: 8px 0;
+      }
+    }
+
+    .accordion-content {
+      padding: 16px 24px;
+      background: rgba(0, 0, 0, 0.2);
+
+      p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.6;
+        font-size: 15px;
+      }
+    }
+  }
+}
+
+.support-card {
+  margin: 24px 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  ion-card-content {
+    padding: 24px;
+  }
+}
+
+.support-header {
+  text-align: center;
+  margin-bottom: 24px;
+
+  ion-icon {
+    font-size: 48px;
+    color: #4285f4;
+    margin-bottom: 12px;
+  }
+
+  h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+    margin: 0 0 8px 0;
+  }
+
+  p {
+    font-size: 15px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+}
+
+ion-button {
+  --background: #4285f4;
+  --background-hover: #3367d6;
+  --background-activated: #2952b3;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 12px rgba(66, 133, 244, 0.3);
+  height: 48px;
+  font-weight: 600;
+  margin-top: 8px;
+
+  ion-icon {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .faq-accordion,
+  .support-card {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

@@ -1,0 +1,44 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/settings"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Ajuda</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- FAQ Section -->
+  <div class="help-header">
+    <ion-icon name="help-circle"></ion-icon>
+    <h1>Perguntas Frequentes</h1>
+    <p>Encontre respostas para as dúvidas mais comuns</p>
+  </div>
+
+  <ion-accordion-group class="faq-accordion">
+    <ion-accordion *ngFor="let item of faqItems" [value]="item.question">
+      <ion-item slot="header">
+        <ion-label class="ion-text-wrap">{{ item.question }}</ion-label>
+      </ion-item>
+      <div class="accordion-content" slot="content">
+        <p>{{ item.answer }}</p>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+
+  <!-- Contact Support Section -->
+  <ion-card class="support-card">
+    <ion-card-content>
+      <div class="support-header">
+        <ion-icon name="chatbubbles"></ion-icon>
+        <h2>Precisa de mais ajuda?</h2>
+        <p>Nossa equipe de suporte está pronta para ajudar você</p>
+      </div>
+
+      <ion-button expand="block" (click)="sendEmail()">
+        <ion-icon name="mail" slot="start"></ion-icon>
+        Enviar Email
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,77 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{ isEditMode ? 'Editar Projeto' : 'Novo Projeto' }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismiss()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form (ngSubmit)="save()">
+    <ion-list>
+      <ion-item>
+        <ion-input
+          label="Nome do Projeto"
+          labelPlacement="stacked"
+          [(ngModel)]="formData.nome"
+          name="nome"
+          placeholder="Digite o nome do projeto"
+          required
+        ></ion-input>
+      </ion-item>
+
+    <ion-item>
+      <ion-textarea
+        label="Descrição"
+        labelPlacement="stacked"
+        [(ngModel)]="formData.descricao"
+        name="descricao"
+        placeholder="Descreva o projeto"
+        rows="4"
+      ></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-select
+        label="Cor"
+        labelPlacement="stacked"
+        [(ngModel)]="formData.cor"
+        name="cor"
+        interface="popover"
+      >
+        <ion-select-option *ngFor="let color of availableColors" [value]="color.value">
+          <div class="color-option">
+            <span class="color-dot" [style.background]="color.value"></span>
+            {{ color.label }}
+          </div>
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item *ngIf="isEditMode">
+      <ion-select
+        label="Status"
+        labelPlacement="stacked"
+        [(ngModel)]="formData.status"
+        name="status"
+        interface="popover"
+      >
+        <ion-select-option *ngFor="let status of statusOptions" [value]="status.value">
+          {{ status.label }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+  </ion-list>
+
+  <div class="form-actions">
+    <ion-button expand="block" type="submit" [disabled]="!isFormValid">
+      <ion-icon slot="start" name="save"></ion-icon>
+      {{ isEditMode ? 'Salvar Alterações' : 'Criar Projeto' }}
+    </ion-button>
+  </div>
+  </form>
+</ion-content>

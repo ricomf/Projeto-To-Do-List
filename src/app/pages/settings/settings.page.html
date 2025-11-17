@@ -1,0 +1,155 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Configurações</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- User Profile Card -->
+  <ion-card class="profile-card" *ngIf="userProfile">
+    <ion-card-content>
+      <div class="profile-info" (click)="navigateToProfile()">
+        <ion-avatar class="profile-avatar">
+          <img *ngIf="userProfile.avatarUrl" [src]="userProfile.avatarUrl" [alt]="userProfile.nome">
+          <div *ngIf="!userProfile.avatarUrl" class="avatar-placeholder">
+            {{ getInitials(userProfile.nome) }}
+          </div>
+        </ion-avatar>
+        <div class="profile-details">
+          <h2>{{ userProfile.nome }}</h2>
+          <p>{{ userProfile.email }}</p>
+        </div>
+        <ion-icon name="chevron-forward"></ion-icon>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- Notifications Section -->
+  <!-- <ion-list>
+    <ion-list-header>
+      <ion-label>Notificações</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-icon name="notifications" slot="start"></ion-icon>
+      <ion-label>Notificações Push</ion-label>
+      <ion-toggle
+        [(ngModel)]="preferences.notificacoesPush"
+        (ionChange)="updatePreferences()"
+      ></ion-toggle>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="mail" slot="start"></ion-icon>
+      <ion-label>Notificações por Email</ion-label>
+      <ion-toggle
+        [(ngModel)]="preferences.notificacoesEmail"
+        (ionChange)="updatePreferences()"
+      ></ion-toggle>
+    </ion-item>
+  </ion-list> -->
+
+  <!-- Appearance Section -->
+  <!-- <ion-list>
+    <ion-list-header>
+      <ion-label>Aparência</ion-label>
+    </ion-list-header>
+
+    <ion-item button (click)="changeTheme()">
+      <ion-icon name="moon" slot="start"></ion-icon>
+      <ion-label>
+        <h2>Tema</h2>
+        <p>{{ preferences.tema === 'light' ? 'Claro' : preferences.tema === 'dark' ? 'Escuro' : 'Automático' }}</p>
+      </ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name="language" slot="start"></ion-icon>
+      <ion-label>
+        <h2>Idioma</h2>
+        <p>Português (Brasil)</p>
+      </ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list> -->
+
+  <!-- Account Section -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Conta</ion-label>
+    </ion-list-header>
+
+    <ion-item button (click)="navigateToProfile()">
+      <ion-icon name="person" slot="start"></ion-icon>
+      <ion-label>Editar Perfil</ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-item button (click)="navigateToSecurity()">
+      <ion-icon name="shield" slot="start"></ion-icon>
+      <ion-label>Segurança</ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <!-- Support Section -->
+  <!-- <ion-list>
+    <ion-list-header>
+      <ion-label>Suporte</ion-label>
+    </ion-list-header>
+
+    <ion-item button (click)="navigateToHelp()">
+      <ion-icon name="help" slot="start"></ion-icon>
+      <ion-label>Ajuda</ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-item button (click)="navigateToPrivacy()">
+      <ion-icon name="shield" slot="start"></ion-icon>
+      <ion-label>Política de Privacidade</ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+
+    <ion-item button (click)="navigateToTerms()">
+      <ion-icon name="document-text" slot="start"></ion-icon>
+      <ion-label>Termos de Uso</ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list> -->
+
+  <!-- Developer Section -->
+  <!-- <ion-list>
+    <ion-list-header>
+      <ion-label>Desenvolvedor</ion-label>
+    </ion-list-header>
+
+    <ion-item button [routerLink]="['/database-debug']">
+      <ion-icon name="code-slash-outline" slot="start"></ion-icon>
+      <ion-label>Debug do Banco de Dados</ion-label>
+      <ion-icon name="chevron-forward" slot="end"></ion-icon>
+    </ion-item>
+  </ion-list> -->
+
+  <!-- About Section -->
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Sobre</ion-label>
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>
+        <p>Versão</p>
+      </ion-label>
+      <ion-note slot="end">1.1.0</ion-note>
+    </ion-item>
+  </ion-list>
+
+  <!-- Logout Button -->
+  <div class="logout-section">
+    <ion-button expand="block" color="danger" (click)="logout()">
+      <ion-icon name="log-out" slot="start"></ion-icon>
+      Sair
+    </ion-button>
+  </div>
+</ion-content>

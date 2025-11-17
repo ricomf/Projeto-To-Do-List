@@ -1,0 +1,185 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/settings"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Política de Privacidade</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="privacy-container">
+    <div class="header-section">
+      <h1>Política de Privacidade</h1>
+      <p class="update-date">Última atualização: {{ lastUpdate | date: 'dd/MM/yyyy' }}</p>
+    </div>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>1. Introdução</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Bem-vindo ao MeuApp. Esta Política de Privacidade descreve como coletamos,
+          usamos, armazenamos e protegemos suas informações pessoais ao utilizar nosso aplicativo.
+        </p>
+        <p>
+          Ao usar nosso aplicativo, você concorda com a coleta e uso de informações
+          de acordo com esta política.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>2. Informações que Coletamos</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p><strong>Informações Pessoais:</strong></p>
+        <ul>
+          <li>Nome completo</li>
+          <li>Endereço de e-mail</li>
+          <li>Informações de perfil (foto, preferências)</li>
+        </ul>
+
+        <p><strong>Dados Financeiros:</strong></p>
+        <ul>
+          <li>Receitas e despesas registradas</li>
+          <li>Categorias de transações</li>
+          <li>Histórico de movimentações financeiras</li>
+        </ul>
+
+        <p><strong>Informações de Uso:</strong></p>
+        <ul>
+          <li>Dados de navegação no aplicativo</li>
+          <li>Preferências e configurações</li>
+          <li>Logs de acesso e atividades</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>3. Como Usamos suas Informações</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Utilizamos suas informações para:</p>
+        <ul>
+          <li>Fornecer e manter nosso serviço</li>
+          <li>Gerenciar sua conta e preferências</li>
+          <li>Processar e registrar suas transações financeiras</li>
+          <li>Enviar notificações e atualizações importantes</li>
+          <li>Melhorar a experiência do usuário</li>
+          <li>Detectar e prevenir fraudes ou uso indevido</li>
+          <li>Cumprir obrigações legais</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>4. Armazenamento e Segurança</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Implementamos medidas de segurança técnicas e organizacionais apropriadas
+          para proteger suas informações pessoais contra acesso não autorizado,
+          alteração, divulgação ou destruição.
+        </p>
+        <p>
+          Seus dados são armazenados em servidores seguros e criptografados.
+          Utilizamos protocolos de segurança padrão da indústria, incluindo HTTPS
+          e criptografia de dados em repouso.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>5. Compartilhamento de Dados</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Não vendemos, alugamos ou compartilhamos suas informações pessoais com
+          terceiros para fins de marketing. Podemos compartilhar informações apenas:
+        </p>
+        <ul>
+          <li>Com seu consentimento explícito</li>
+          <li>Para cumprir obrigações legais</li>
+          <li>Para proteger nossos direitos e segurança</li>
+          <li>Com prestadores de serviços que nos auxiliam (sob confidencialidade)</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>6. Seus Direitos</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Você tem direito a:</p>
+        <ul>
+          <li>Acessar suas informações pessoais</li>
+          <li>Corrigir dados imprecisos ou incompletos</li>
+          <li>Solicitar a exclusão de seus dados</li>
+          <li>Exportar seus dados em formato portável</li>
+          <li>Revogar consentimentos previamente dados</li>
+          <li>Opor-se ao processamento de seus dados</li>
+        </ul>
+        <p>
+          Para exercer esses direitos, entre em contato conosco através do
+          email: privacidade@meuapp.com
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>7. Cookies e Tecnologias Similares</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Utilizamos cookies e tecnologias de armazenamento local para melhorar
+          sua experiência, manter suas preferências e analisar o uso do aplicativo.
+        </p>
+        <p>
+          Você pode gerenciar suas preferências de armazenamento local através
+          das configurações do aplicativo.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>8. Alterações nesta Política</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Podemos atualizar esta Política de Privacidade periodicamente.
+          Notificaremos você sobre mudanças significativas através do aplicativo
+          ou por e-mail.
+        </p>
+        <p>
+          Recomendamos revisar esta política regularmente para se manter informado
+          sobre como protegemos suas informações.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>9. Contato</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Se você tiver dúvidas sobre esta Política de Privacidade ou sobre
+          como tratamos seus dados, entre em contato:
+        </p>
+        <ul>
+          <li>E-mail: privacidade@meuapp.com</li>
+          <li>E-mail: suporte@meuapp.com</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Minhas Tarefas</ion-title>
+    <!-- <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="filter" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar
+      [(ngModel)]="searchQuery"
+      (ionInput)="onSearchChange($event)"
+      placeholder="Buscar tarefas..."
+      debounce="300"
+    ></ion-searchbar>
+  </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="selectedSegment" (ionChange)="onSegmentChange($event)">
+      <ion-segment-button value="all">
+        <ion-label>Todas</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="todo">
+        <ion-label>A Fazer</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="inprogress">
+        <ion-label>Em Andamento</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="completed">
+        <ion-label>Concluídas</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Tasks List -->
+  <ion-list *ngIf="filteredTasks.length > 0">
+    <app-task-item
+      *ngFor="let task of filteredTasks"
+      [task]="task"
+      [showActions]="true"
+      (taskToggle)="toggleTaskStatus($event)"
+      (taskStatusChange)="handleStatusChange($event)"
+      (taskEdit)="editTask($event)"
+      (taskDelete)="deleteTask($event)"
+      (taskClick)="viewTaskDetails($event)"
+    ></app-task-item>
+  </ion-list>
+
+  <!-- Empty State -->
+  <div class="empty-state" *ngIf="filteredTasks.length === 0 && !isLoading">
+    <ion-icon name="checkmark-circle-outline"></ion-icon>
+    <h2>Nenhuma tarefa encontrada</h2>
+    <p *ngIf="searchQuery">Tente buscar por outro termo</p>
+    <p *ngIf="!searchQuery">Comece criando sua primeira tarefa!</p>
+  </div>
+
+  <!-- Floating Action Button -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="createNewTask()" id="add-task-btn">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

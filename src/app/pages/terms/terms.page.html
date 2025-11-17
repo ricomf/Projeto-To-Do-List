@@ -1,0 +1,262 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/settings"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Termos de Uso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="terms-container">
+    <div class="header-section">
+      <h1>Termos de Uso</h1>
+      <p class="update-date">Última atualização: {{ lastUpdate | date: 'dd/MM/yyyy' }}</p>
+    </div>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>1. Aceitação dos Termos</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Ao acessar e usar o MeuApp, você aceita e concorda em cumprir estes
+          Termos de Uso e todas as leis e regulamentos aplicáveis.
+        </p>
+        <p>
+          Se você não concordar com algum destes termos, está proibido de usar
+          ou acessar este aplicativo.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>2. Licença de Uso</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Concedemos a você uma licença limitada, não exclusiva, intransferível
+          e revogável para usar o MeuApp para fins pessoais e não comerciais.
+        </p>
+        <p><strong>Você não pode:</strong></p>
+        <ul>
+          <li>Modificar ou copiar o aplicativo ou seus materiais</li>
+          <li>Usar o aplicativo para fins comerciais sem autorização</li>
+          <li>Tentar descompilar ou fazer engenharia reversa do software</li>
+          <li>Remover direitos autorais ou outras notações proprietárias</li>
+          <li>Transferir o aplicativo para outra pessoa ou servidor</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>3. Conta de Usuário</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Para usar determinados recursos do aplicativo, você deve criar uma conta
+          fornecendo informações precisas e completas.
+        </p>
+        <p><strong>Responsabilidades:</strong></p>
+        <ul>
+          <li>Manter a confidencialidade de suas credenciais de acesso</li>
+          <li>Notificar-nos imediatamente sobre qualquer uso não autorizado</li>
+          <li>Ser responsável por todas as atividades em sua conta</li>
+          <li>Fornecer informações verdadeiras e atualizadas</li>
+          <li>Não compartilhar sua conta com terceiros</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>4. Uso Aceitável</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>Você concorda em usar o MeuApp apenas para fins legais e de acordo com:</p>
+        <ul>
+          <li>Todas as leis e regulamentos aplicáveis</li>
+          <li>Estes Termos de Uso e políticas relacionadas</li>
+          <li>Quaisquer diretrizes de uso que possamos fornecer</li>
+        </ul>
+        <p><strong>É proibido:</strong></p>
+        <ul>
+          <li>Usar o aplicativo de forma que possa danificá-lo ou prejudicar seu funcionamento</li>
+          <li>Usar o aplicativo para transmitir material ilegal, ofensivo ou prejudicial</li>
+          <li>Coletar dados de outros usuários sem autorização</li>
+          <li>Tentar acessar áreas restritas do sistema</li>
+          <li>Interferir no uso e aproveitamento do aplicativo por outros usuários</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>5. Conteúdo do Usuário</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Você mantém todos os direitos sobre os dados e informações que insere
+          no aplicativo (receitas, despesas, etc.).
+        </p>
+        <p>
+          Ao usar o MeuApp, você nos concede permissão para armazenar, processar
+          e usar essas informações conforme necessário para fornecer nossos serviços.
+        </p>
+        <p>
+          Você é responsável por garantir que tem direito de usar e compartilhar
+          qualquer conteúdo que carregue no aplicativo.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>6. Propriedade Intelectual</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          O MeuApp e seu conteúdo original, recursos e funcionalidades são e
+          permanecerão propriedade exclusiva da empresa e seus licenciadores.
+        </p>
+        <p>
+          O aplicativo é protegido por leis de direitos autorais, marcas registradas
+          e outras leis de propriedade intelectual.
+        </p>
+        <p>
+          Nossos nomes de marcas e logotipos não podem ser usados sem permissão
+          prévia por escrito.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>7. Isenção de Garantias</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          O MeuApp é fornecido "como está" e "conforme disponível", sem garantias
+          de qualquer tipo, expressas ou implícitas.
+        </p>
+        <p>
+          Não garantimos que o aplicativo estará sempre disponível, livre de erros
+          ou seguro contra acesso não autorizado.
+        </p>
+        <p>
+          Você usa o aplicativo por sua conta e risco.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>8. Limitação de Responsabilidade</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Em nenhuma circunstância seremos responsáveis por quaisquer danos
+          indiretos, incidentais, especiais, consequenciais ou punitivos.
+        </p>
+        <p>
+          Isso inclui, sem limitação, perda de lucros, dados, uso, boa vontade
+          ou outras perdas intangíveis resultantes de:
+        </p>
+        <ul>
+          <li>Uso ou incapacidade de usar o aplicativo</li>
+          <li>Acesso não autorizado a seus dados</li>
+          <li>Erros ou omissões no conteúdo</li>
+          <li>Qualquer outra questão relacionada ao aplicativo</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>9. Modificações do Serviço</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Reservamos o direito de modificar, suspender ou descontinuar,
+          temporária ou permanentemente, o aplicativo (ou qualquer parte dele)
+          com ou sem aviso prévio.
+        </p>
+        <p>
+          Não seremos responsáveis por qualquer modificação, suspensão ou
+          descontinuação do aplicativo.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>10. Rescisão</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Podemos encerrar ou suspender sua conta e acesso ao aplicativo
+          imediatamente, sem aviso prévio, por qualquer motivo, incluindo,
+          sem limitação, violação destes Termos.
+        </p>
+        <p>
+          Você pode encerrar sua conta a qualquer momento através das
+          configurações do aplicativo ou entrando em contato conosco.
+        </p>
+        <p>
+          Após o encerramento, seu direito de usar o aplicativo cessará
+          imediatamente.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>11. Alterações nos Termos</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Reservamos o direito de modificar estes termos a qualquer momento.
+          Notificaremos você sobre mudanças significativas por e-mail ou
+          através do aplicativo.
+        </p>
+        <p>
+          Seu uso continuado do aplicativo após tais modificações constitui
+          aceitação dos novos termos.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>12. Lei Aplicável</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Estes Termos serão regidos e interpretados de acordo com as leis do
+          Brasil, sem consideração às disposições sobre conflitos de leis.
+        </p>
+        <p>
+          Qualquer disputa relacionada a estes termos será resolvida nos
+          tribunais competentes do Brasil.
+        </p>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>13. Contato</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Se você tiver dúvidas sobre estes Termos de Uso, entre em contato:
+        </p>
+        <ul>
+          <li>E-mail: legal@meuapp.com</li>
+          <li>E-mail: suporte@meuapp.com</li>
+        </ul>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,4 @@
+<div class="loading-container" [class]="'size-' + size">
+  <ion-spinner name="crescent" [class]="'spinner-' + size"></ion-spinner>
+  <p *ngIf="message">{{ message }}</p>
+</div>

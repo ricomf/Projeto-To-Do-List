@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Editar Perfil</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="save()" [strong]="true">
+        <ion-icon name="save" slot="start"></ion-icon>
+        Salvar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- Avatar Section -->
+  <div class="avatar-section">
+    <ion-avatar class="profile-avatar" (click)="triggerFileInput()">
+      <img *ngIf="previewUrl" [src]="previewUrl" [alt]="profileForm.value.nome">
+      <div *ngIf="!previewUrl" class="avatar-placeholder">
+        {{ getInitials(profileForm.value.nome) }}
+      </div>
+      <div class="avatar-overlay">
+        <ion-icon name="camera"></ion-icon>
+      </div>
+    </ion-avatar>
+    <input
+      type="file"
+      id="avatar-input"
+      accept="image/*"
+      (change)="onFileSelected($event)"
+      style="display: none"
+    />
+    <p class="avatar-hint">Toque na imagem para alterar</p>
+  </div>
+
+  <!-- Profile Form -->
+  <form [formGroup]="profileForm">
+    <ion-list>
+      <ion-item>
+        <ion-label position="stacked">Nome Completo *</ion-label>
+        <ion-input
+          formControlName="nome"
+          type="text"
+          placeholder="Digite seu nome"
+        ></ion-input>
+      </ion-item>
+      <div class="error-message" *ngIf="profileForm.get('nome')?.invalid && profileForm.get('nome')?.touched">
+        <p *ngIf="profileForm.get('nome')?.errors?.['required']">Nome é obrigatório</p>
+        <p *ngIf="profileForm.get('nome')?.errors?.['minlength']">Nome deve ter no mínimo 3 caracteres</p>
+      </div>
+
+      <ion-item>
+        <ion-label position="stacked">Email *</ion-label>
+        <ion-input
+          formControlName="email"
+          type="email"
+          placeholder="Digite seu email"
+        ></ion-input>
+      </ion-item>
+      <div class="error-message" *ngIf="profileForm.get('email')?.invalid && profileForm.get('email')?.touched">
+        <p *ngIf="profileForm.get('email')?.errors?.['required']">Email é obrigatório</p>
+        <p *ngIf="profileForm.get('email')?.errors?.['email']">Email inválido</p>
+      </div>
+    </ion-list>
+  </form>
+</ion-content>

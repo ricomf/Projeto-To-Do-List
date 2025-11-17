@@ -1,0 +1,99 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tasks"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalhes da Tarefa</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="task-detail-container" *ngIf="task && !isLoading">
+    <!-- Status Badge -->
+    <div class="status-header">
+      <ion-chip [color]="getStatusColor(task.status)" class="status-chip">
+        <ion-label>{{ getStatusLabel(task.status) }}</ion-label>
+      </ion-chip>
+    </div>
+
+    <!-- Main Card -->
+    <ion-card class="main-card">
+      <ion-card-header>
+        <ion-card-title>{{ task.titulo }}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <!-- Descrição -->
+        <div class="detail-section" *ngIf="task.descricao">
+          <h3>Descrição</h3>
+          <p class="description-text">{{ task.descricao }}</p>
+        </div>
+
+        <!-- Prioridade -->
+        <div class="detail-section">
+          <h3>Prioridade</h3>
+          <ion-chip [color]="getPriorityColor(task.prioridade)">
+            <ion-label>{{ getPriorityLabel(task.prioridade) }}</ion-label>
+          </ion-chip>
+        </div>
+
+        <!-- Data de Vencimento -->
+        <div class="detail-section" *ngIf="task.dataVencimento">
+          <h3>
+            <ion-icon name="calendar"></ion-icon>
+            Data de Vencimento
+          </h3>
+          <p>{{ formatDate(task.dataVencimento) }}</p>
+        </div>
+
+        <!-- Tags -->
+        <div class="detail-section" *ngIf="task.tags && task.tags.length > 0">
+          <h3>
+            <ion-icon name="pricetag"></ion-icon>
+            Tags
+          </h3>
+          <div class="tags-container">
+            <ion-chip *ngFor="let tag of task.tags" color="tertiary">
+              <ion-label>{{ tag }}</ion-label>
+            </ion-chip>
+          </div>
+        </div>
+
+        <!-- Informações de Data -->
+        <div class="detail-section metadata">
+          <div class="metadata-item">
+            <ion-icon name="time"></ion-icon>
+            <div>
+              <small>Criado em</small>
+              <p>{{ formatDateTime(task.dataCriacao) }}</p>
+            </div>
+          </div>
+          <div class="metadata-item" *ngIf="task.dataAtualizacao">
+            <ion-icon name="time"></ion-icon>
+            <div>
+              <small>Atualizado em</small>
+              <p>{{ formatDateTime(task.dataAtualizacao) }}</p>
+            </div>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <ion-button expand="block" (click)="editTask()" color="primary">
+        <ion-icon slot="start" name="create"></ion-icon>
+        Editar
+      </ion-button>
+      <ion-button expand="block" (click)="deleteTask()" color="danger" fill="outline">
+        <ion-icon slot="start" name="trash"></ion-icon>
+        Excluir
+      </ion-button>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div class="loading-container" *ngIf="isLoading">
+    <ion-label>Carregando...</ion-label>
+  </div>
+</ion-content>
