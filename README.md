@@ -8,7 +8,7 @@
 ![Capacitor](https://img.shields.io/badge/Capacitor-7.4-119EFF?style=for-the-badge&logo=capacitor&logoColor=white)
 ![SQLite](https://img.shields.io/badge/SQLite-3-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 
-Um aplicativo móvel híbrido completo para gerenciamento de tarefas e projetos, com armazenamento local SQLite e sincronização em tempo real.
+Um aplicativo móvel híbrido completo para gerenciamento de tarefas e projetos, com armazenamento local SQLite.
 
 [Características](#-características) •
 [Tecnologias](#-stack-tecnológico) •
