@@ -922,47 +922,9 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ---
 
-## 📞 Suporte
-
-Para dúvidas, sugestões ou problemas:
-
-- 📧 **Email**: suporte@todoapp.com
-- 🐛 **Issues**: [GitHub Issues](https://github.com/seu-usuario/To-Do-List-Projeto-Mobile-/issues)
-- 📚 **Documentação**: [Wiki do Projeto](https://github.com/seu-usuario/To-Do-List-Projeto-Mobile-/wiki)
-- 💬 **Discussões**: [GitHub Discussions](https://github.com/seu-usuario/To-Do-List-Projeto-Mobile-/discussions)
-
----
-
-## 🗺️ Roadmap
-
-### Versão 1.1
-- [ ] Notificações push
-- [ ] Sincronização em tempo real
-- [ ] Modo offline completo
-
-### Versão 1.2
-- [ ] Integração com calendário
-- [ ] Exportação de dados (PDF, Excel)
-- [ ] Compartilhamento de tarefas
-
-### Versão 2.0
-- [ ] Modo Kanban
-- [ ] Relatórios e dashboards
-- [ ] Integração com Google Tasks / Microsoft To Do
-- [ ] Aplicativo desktop (Electron)
-- [ ] Internacionalização (i18n) - múltiplos idiomas
-- [ ] Anexação de arquivos
-- [ ] Comentários em tarefas
-- [ ] Histórico de atividades
-
----
-
 ## 👥 Autores
 
-- **Desenvolvedor Principal** - *Desenvolvimento Inicial* - [Seu Nome](https://github.com/seu-usuario)
-
-Veja também a lista de [contribuidores](https://github.com/seu-usuario/To-Do-List-Projeto-Mobile-/contributors) que participaram deste projeto.
-
+- **Desenvolvedor Principal** - *Desenvolvimento geral* - [Ricardo José Mendonça Filho](https://github.com/ricomf)
 ---
 
 ## 🙏 Agradecimentos
